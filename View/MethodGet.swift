@@ -46,7 +46,7 @@ struct MethodGet: View {
                                         .frame(height: 1)
                                         .padding(.top, 40)
                                 )
-                            Text("Dessert")
+                            Text("Dessertaaaa")
                                 .padding(.horizontal, 23)
                                 .font(.system(size: 20))
                                 .overlay(
