@@ -27,9 +27,7 @@ struct Categories: View {
             }
         }
         .onTapGesture {
-        
             self.setSelectedIndex()
-            
         }
     }
 }

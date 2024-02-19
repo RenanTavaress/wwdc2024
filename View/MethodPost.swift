@@ -7,12 +7,16 @@
 
 import SwiftUI
 
-struct SwiftUIView: View {
+struct MethodPost: View {
+    
+    @Binding var selectedIndex: Int
+    var typeMethod: String
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Cardapio(selectedIndex: $selectedIndex, typeMethod: typeMethod)
     }
 }
 
 #Preview {
-    SwiftUIView()
+    MethodPost(selectedIndex: .constant(0), typeMethod: "POST")
 }

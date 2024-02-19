@@ -3,6 +3,8 @@ import SwiftUI
 struct ContentView: View {
     @State private var columnVisibility =
     NavigationSplitViewVisibility.doubleColumn
+    @EnvironmentObject var customFont: customFonts
+    //@Binding var selectedIndex: Int
     
     var body: some View {
         VStack {
@@ -33,7 +35,7 @@ struct ContentView: View {
                             Spacer()
                         }
                         .navigationBarTitleDisplayMode(.large)
-                        .navigationTitle("Web Restô")
+                        .navigationTitle("Restaurant")
                         
                         
                     }
@@ -43,7 +45,7 @@ struct ContentView: View {
                 
                     VStack(alignment: .leading){
                        
-                        MethodGet()
+//                        MethodGet(selectedIndex: $selectedIndex, typeMethod: "GET")
                     }
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
                     .background()

@@ -10,12 +10,13 @@ import SwiftUI
 
 struct Content: View {
     
-    let contentOfMethods: Methods
-    
+    var contentOfMethods: Methods
+    @State var selectedIndex: Int = 0
     var body: some View {
         VStack {
-            if contentOfMethods.name == "GET" {
-                MethodGet()
+            if contentOfMethods.name == "GET" {                MethodGet(selectedIndex: $selectedIndex, typeMethod: contentOfMethods.name)
+            } else if contentOfMethods.name == "POST" {
+                MethodPost(selectedIndex: $selectedIndex, typeMethod: contentOfMethods.name)
             }
         }
     }
