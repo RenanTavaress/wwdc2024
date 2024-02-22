@@ -7,12 +7,19 @@
 
 import SwiftUI
 
-struct SwiftUIView: View {
+struct MethodDelete: View {
+    @State var isShowing: Bool = false
+    @Binding var storageMeals: ManagerStorageMeals 
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            ScrollView {
+                Orders(isShowing: $isShowing, storageMeals: storageMeals)
+            }.navigationTitle("Restaurant")
+        }
     }
 }
 
-#Preview {
-    SwiftUIView()
-}
+//#Preview {
+//    MethodDelete(storages: , isShowing: .constant(false))
+//}

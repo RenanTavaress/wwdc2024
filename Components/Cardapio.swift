@@ -19,12 +19,10 @@ struct Cardapio: View {
         "Drinks": drinks
     ]
     
-    
-    @State var storageMeals: [ContentCategoryMenu] = []
-    
+   @EnvironmentObject var storageMeals: ManagerStorageMeals
     
     var body: some View {
-        ScrollView {
+       // ScrollView {
             VStack(alignment: .center) {
                 Spacer()
                 ZStack(alignment: Alignment(horizontal: .center, vertical: .top)) {
@@ -44,6 +42,7 @@ struct Cardapio: View {
                         HStack {
                             ForEach(types.indices, id: \.self) { index in
                                 Categories(isSelected: self.selectedIndex == index, setSelectedIndex: { self.selectedIndex = index} , name: self.types[index])
+                                    
                             }
                             
                         }.frame(alignment: .trailing)
@@ -51,27 +50,37 @@ struct Cardapio: View {
                         
                         VStack(alignment: .leading) {
                             ForEach(categories[self.types[selectedIndex]] ?? []) { categories in
-                                MenuContent(category: categories, storageMeals: $storageMeals, typeMethod: typeMethod)
+                                MenuContent(category: categories, typeMethod: typeMethod)
+                                   .environmentObject(storageMeals)
                                     .padding(.top, 10)
-                                
                             }
                             
                         }.padding(.top, 20)
+                            
                         
                     }
                 }
                 
+            }.onDisappear {
+                storageMeals.storageMeals.forEach { meal in
+                        meal.isChecked = false
+                    }
             }
-        }.navigationTitle("Restaurant")
+            
+       // }.navigationTitle("Restaurant")
     }
 }
 
-#Preview {
-    Cardapio(selectedIndex: .constant(0), typeMethod: "GET")
-}
+//#Preview {
+//    Cardapio(selectedIndex: .constant(0), typeMethod: "GET", storageMeals: .constant([ContentCategoryMenu(name: "Potato", dot:"......................................................", price: "$10.00", description: "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet", isChecked: false)]))
+//}
 
 
 //ForEach(categories[self.types[selectedIndex]] ?? starter, id: \.id ) { categories in
 //
 //    MenuContent(categories: categories)
 //}.padding(.vertical, 10)
+
+
+
+

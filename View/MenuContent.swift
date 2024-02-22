@@ -12,7 +12,8 @@ import SwiftUI
 struct MenuContent: View {
     
     @StateObject var category: ContentCategoryMenu
-    @Binding var storageMeals: [ContentCategoryMenu]
+    @EnvironmentObject var storageMeals: ManagerStorageMeals
+    
     var typeMethod: String
     
     var body: some View {
@@ -21,11 +22,12 @@ struct MenuContent: View {
                 Image(systemName: category.isChecked ? "checkmark.square.fill" :  "square")
                     .font(.system(size: 30))
                     .onTapGesture {
+                        print(storageMeals.storageMeals)
                         category.isChecked.toggle()
                         if category.isChecked {
-                            storageMeals.append(category)
+                            storageMeals.storageMeals.append(category)
                         } else {
-                            storageMeals = storageMeals.filter {
+                            storageMeals.storageMeals = storageMeals.storageMeals.filter {
                                 $0.isChecked == true
                             }
                         }
@@ -49,10 +51,10 @@ struct MenuContent: View {
 }
 
 
-
-#Preview {
-    MenuContent(category: ContentCategoryMenu(name: "Potato", dot:"......................................................", price: "$10.00", description: "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet", isChecked: false), storageMeals: .constant([ContentCategoryMenu(name: "Potato", dot:"......................................................", price: "$10.00", description: "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet", isChecked: false)]), typeMethod: "POST")
-}
+//
+//#Preview {
+//    MenuContent(category: ContentCategoryMenu(name: "Potato", dot:"......................................................", price: "$10.00", description: "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet", isChecked: false), storageMeals: .constant([ContentCategoryMenu(name: "Potato", dot:"......................................................", price: "$10.00", description: "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet", isChecked: false)]), typeMethod: "POST")
+//}
 
 
 
