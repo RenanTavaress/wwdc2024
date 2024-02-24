@@ -17,7 +17,7 @@ struct SideBarView: View {
 //                    .foregroundStyle(Color(.systemGray))
                 
                 VStack {
-                    Text("Vamos aprender os metodos HTTP da web")
+                    Text("HTTP")
                         .font(.title3)
                         .foregroundStyle(Color(.label))
                         .padding()

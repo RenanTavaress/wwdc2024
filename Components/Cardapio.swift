@@ -43,6 +43,7 @@ struct Cardapio: View {
                             ForEach(types.indices, id: \.self) { index in
                                 Categories(isSelected: self.selectedIndex == index, setSelectedIndex: { self.selectedIndex = index} , name: self.types[index])
                                     
+                                    
                             }
                             
                         }.frame(alignment: .trailing)
@@ -65,6 +66,9 @@ struct Cardapio: View {
                 storageMeals.storageMeals.forEach { meal in
                         meal.isChecked = false
                     }
+            }
+            .onAppear {
+                storageMeals.storageMeals = []
             }
             
        // }.navigationTitle("Restaurant")

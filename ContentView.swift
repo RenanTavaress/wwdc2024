@@ -4,7 +4,6 @@ struct ContentView: View {
     @State private var columnVisibility =
     NavigationSplitViewVisibility.doubleColumn
     @EnvironmentObject var customFont: customFonts
-    //@Binding var selectedIndex: Int
     
     var body: some View {
         VStack {
@@ -42,14 +41,6 @@ struct ContentView: View {
                     .padding(.horizontal)
                 }
                 detail: {
-                
-                    VStack(alignment: .leading){
-                       
-//                        MethodGet(selectedIndex: $selectedIndex, typeMethod: "GET")
-                    }
-                    .frame(maxWidth: .infinity, maxHeight: .infinity)
-                    .background()
-            
                 
                 // aqui é o conteudo do programa
             }

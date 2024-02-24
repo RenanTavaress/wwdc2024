@@ -12,7 +12,6 @@ struct Categories: View {
     var isSelected: Bool
     var setSelectedIndex: () -> Void
     var name: String
-    
    
     var body: some View {
         VStack {

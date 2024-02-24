@@ -13,6 +13,7 @@ struct MethodPost: View {
     var typeMethod: String
     var contentOfMethods: Methods
     @State var isShowing: Bool = false
+    @State var orderId: String = "12"
     
     @Binding var storageMeals: ManagerStorageMeals 
    
@@ -22,29 +23,29 @@ struct MethodPost: View {
         ScrollView {
             ZStack {
                 VStack {
+                    
+                    HStack {
+                        EndPoint(orderId: $orderId, typeMethod: typeMethod, endPoint: "/pedido", color: .green, needId: false)
+                        
+                        Button {
+                            if storageMeals.storageMeals.isEmpty {
+                                isShowing = false
+                            } else {
+                                isShowing.toggle()
+                            }
+                            
+                            
+                        } label: {
+                            ButtonEndPoint(typeMethod: typeMethod, color: .green, icon: "arrowshape.turn.up.right.fill")
+                        }.sheet(isPresented: $isShowing) {
+                            Orders(isShowing: $isShowing , storageMeals: storageMeals, typeMethod: typeMethod)
+                        }
+                           
+                    }
+                    
                     Cardapio(selectedIndex: $selectedIndex, typeMethod: typeMethod)
                         .environmentObject(storageMeals)
-                      
-                    Button {
-                        if storageMeals.storageMeals.isEmpty {
-                            isShowing = false
-                        } else {
-                            isShowing.toggle()
-                        }
-                        
-                        
-                    } label: {
-                        VStack(alignment: .center) {
-                            Text("Revisar pedido")
-                                .foregroundStyle(.black)
-                                .font(.customFont(size: 24))
-                        }.frame(width: 367, height: 66)
-                            .background(Color(red: 241/255, green: 241/255, blue: 232/255))
-                            .cornerRadius(15)
-                            .multilineTextAlignment(.center)
-                    }.sheet(isPresented: $isShowing) {
-                        Orders(isShowing: $isShowing , storageMeals: storageMeals)
-                    }
+                   
                 }
                 
                 

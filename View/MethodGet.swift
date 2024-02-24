@@ -11,24 +11,28 @@ struct MethodGet: View {
     
     @Binding var selectedIndex: Int
     var typeMethod: String
+    @State var orderId: String = "1"
+    var types: [String] = ["starter", "maincourse", "dessert", "drinks"]
     
-    var storageMeals: ManagerStorageMeals = ManagerStorageMeals(storageMeals: [])
+    @Binding var storageMeals: ManagerStorageMeals 
 
     
     var body: some View {
         
         ScrollView {
+            EndPoint(orderId: $orderId, typeMethod: typeMethod, endPoint: "/menu/\(types[selectedIndex])", color: .blue, needId: false)
             Cardapio(selectedIndex: $selectedIndex, typeMethod: typeMethod)
                 .environmentObject(storageMeals)
+               
         }.navigationTitle("Restaurant")
     }
 }
 
-
-#Preview {
-    MethodGet(selectedIndex: .constant(0), typeMethod: "GET")
-}
-
+//
+//#Preview {
+//    MethodGet(selectedIndex: .constant(0), typeMethod: "GET", storageMeals: <#Binding<ManagerStorageMeals>#>)
+//}
+//
 
 
 
