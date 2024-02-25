@@ -11,6 +11,7 @@ struct Orders: View {
     @Binding var isShowing: Bool
     
     @StateObject var storageMeals: ManagerStorageMeals
+    @Binding var isAcepeted: Bool
     
     var typeMethod: String?
     
@@ -20,37 +21,46 @@ struct Orders: View {
                 Image("Orders")
                 
                 if (storageMeals.isSave && typeMethod == "DELETE") || typeMethod == "POST" {
+                    
                     VStack(alignment: .leading) {
-                        Text(!storageMeals.storageMeals.isEmpty ?  "    {" : "")
-                            .font(.system(size: 18))
+                        ScrollView(showsIndicators: false) {
+                            VStack(alignment: .leading) {
+                                Text(!storageMeals.storageMeals.isEmpty ?  "    {" : "")
+                                    .font(.system(size: 18))
+                                
+                                ForEach(storageMeals.storageMeals) { meals in
+                                    Text("{").padding(.leading, 35).font(.system(size: 20))
+                                    
+                                    Text("'id': '\(meals.id)',")
+                                        .padding(.leading, 50)
+                                        .font(.system(size: 18))
+                                    
+                                    Text("'meal': '\(meals.name)',")
+                                        .padding(.leading, 50)
+                                        .font(.system(size: 18))
+                                    
+                                    Text("'price': '\(meals.price)',")
+                                        .padding(.leading, 50)
+                                        .font(.system(size: 20))
+                                    Text("},").padding(.leading, 35 )
+                                        .font(.system(size: 18))
+                                }
+                                Text(!storageMeals.storageMeals.isEmpty ? "    }" : "").font(.system(size: 18))
+                            }.frame(maxWidth: .infinity, maxHeight: .infinity)
+                        }.frame(maxWidth: .infinity, maxHeight: .infinity)
                         
-                        ForEach(storageMeals.storageMeals) { meals in
-                            Text("{").padding(.leading, 35).font(.system(size: 20))
-                            
-                            Text("'id': '\(meals.id)',")
-                                .padding(.leading, 50)
-                                .font(.system(size: 18))
-                            
-                            Text("'meal': '\(meals.name)',")
-                                .padding(.leading, 50)
-                                .font(.system(size: 18))
-                            
-                            Text("'price': '\(meals.price)',")
-                                .padding(.leading, 50)
-                                .font(.system(size: 20))
-                            Text("},").padding(.leading, 35 )
-                                .font(.system(size: 18))
-                        }
-                        Text(!storageMeals.storageMeals.isEmpty ? "    }" : "").font(.system(size: 18))
-                    }.frame(width: 550, height: 570, alignment: Alignment(horizontal: .leading, vertical: .top))
+                    }.frame(width: 550, height: 570)
                         .padding(.top, 100)
+                        .foregroundColor(.black)
+                    
                 }
             }
             
+            
             if typeMethod == "POST" {
                 VStack(alignment: .center) {
-                  
-                    Text("Enviar pedido")
+                    
+                    Text("Send order")
                         .foregroundStyle(.black)
                         .font(.customFont(size: 24))
                     
@@ -60,8 +70,13 @@ struct Orders: View {
                     .multilineTextAlignment(.center)
                     .onTapGesture {
                         isShowing.toggle()
-                        storageMeals.isSave.toggle()
-                        print(storageMeals.storageMeals.count)
+                        storageMeals.isSave = true
+                        
+                        withAnimation(.linear.delay(0.3)) {
+                            if !isShowing {
+                                isAcepeted.toggle()
+                            }
+                        }
                     }
             }
             
@@ -72,7 +87,7 @@ struct Orders: View {
 }
 
 #Preview {
-    Orders(isShowing: .constant(false), storageMeals: ManagerStorageMeals(storageMeals: [], isSave: false) )
+    Orders(isShowing: .constant(false), storageMeals: ManagerStorageMeals(storageMeals: [], isSave: false), isAcepeted: .constant(false) )
 }
 
 

@@ -12,17 +12,17 @@ struct Cardapio: View {
     var typeMethod: String
     var types: [String] = ["Starter", "Maincourse", "Dessert", "Drinks"]
     
+   
+    
     var categories: [String: [ContentCategoryMenu]] = [
         "Starter": starter,
         "Maincourse": mainCourse,
         "Dessert": dessert,
         "Drinks": drinks
     ]
-    
    @EnvironmentObject var storageMeals: ManagerStorageMeals
     
     var body: some View {
-       // ScrollView {
             VStack(alignment: .center) {
                 Spacer()
                 ZStack(alignment: Alignment(horizontal: .center, vertical: .top)) {
@@ -34,7 +34,7 @@ struct Cardapio: View {
                             
                             Text("Menu")
                                 .font(.customFont(size: 40))
-                                .padding(.leading, 20)
+                                .padding(.leading, 20).foregroundColor(.black)
                             
                         }
                         .frame(width: 500, height: 200, alignment: .leading)
@@ -70,20 +70,14 @@ struct Cardapio: View {
             .onAppear {
                 storageMeals.storageMeals = []
             }
-            
-       // }.navigationTitle("Restaurant")
     }
 }
 
 //#Preview {
-//    Cardapio(selectedIndex: .constant(0), typeMethod: "GET", storageMeals: .constant([ContentCategoryMenu(name: "Potato", dot:"......................................................", price: "$10.00", description: "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet", isChecked: false)]))
+//    Cardapio(selectedIndex: .constant(0), typeMethod: "GET", storageMeals: ).environmentObject([ContentCategoryMenu(id: "1", name: "Potato", dot:"......................................................", price: "$10.00", description: "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet", isChecked: false)])
 //}
-
-
-//ForEach(categories[self.types[selectedIndex]] ?? starter, id: \.id ) { categories in
 //
-//    MenuContent(categories: categories)
-//}.padding(.vertical, 10)
+//
 
 
 

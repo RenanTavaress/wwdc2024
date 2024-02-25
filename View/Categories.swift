@@ -19,12 +19,15 @@ struct Categories: View {
                 .padding(.horizontal, 23)
                 .font(.customFont(size: 20))
                 .frame(height: 20, alignment: .bottom)
+                
             if isSelected {
                 Divider()
                     .frame(width: 120)
                     .overlay(.black)
+                    
             }
         }
+        .foregroundColor(.black)
         .onTapGesture {
             self.setSelectedIndex()
         }

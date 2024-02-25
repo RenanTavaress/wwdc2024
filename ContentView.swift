@@ -11,25 +11,49 @@ struct ContentView: View {
                 
                 NavigationSplitView(columnVisibility: $columnVisibility) {
                     VStack(alignment: .center) {
-                        ScrollView {
-                            SideBarView()
+                        SideBarView()
+                        
+                        Spacer()
+                        
+                        NavigationLink {
+                            Introduction().padding(.horizontal,40)
+                            
+                        } label: {
+                            VStack {
+                                MethodButton(paramsMethods: Methods(name: "Introduction", color: Color(.presetAccent)))
+                                    .background(Color(.systemGray6))
+                                    .cornerRadius(15)
+                                    .padding(.top, 35)
+                                
+                            }
+                            
+                        }
+                        
+                        
+                        
+                        
+                        
+                        ScrollView(showsIndicators: false) {
                             Spacer()
                             VStack(alignment: .center, spacing: 10) {
                                 ForEach(methodsCategories, id: \.self) { methods in
-                                    
                                     NavigationLink {
                                         Content(contentOfMethods: methods)
+                                        
                                     } label: {
                                         VStack {
                                             MethodButton(paramsMethods: methods)
                                                 .padding(.horizontal)
+                                            
                                         }
+                                        
                                     }
                                 }
+                                
                             }
-                            .background(Color(.secondarySystemBackground))
+                            .background(Color(.systemGray6))
                             .cornerRadius(15)
-                            .padding(.top, 35)
+                            .padding(.top)
                             
                             Spacer()
                         }
@@ -40,8 +64,9 @@ struct ContentView: View {
                     }
                     .padding(.horizontal)
                 }
-                detail: {
+            detail: {
                 
+                Introduction().padding(.horizontal,40)
                 // aqui é o conteudo do programa
             }
                 

@@ -22,6 +22,8 @@ struct Content: View {
                 MethodPost(selectedIndex: $selectedIndex, typeMethod: contentOfMethods.name,  contentOfMethods: contentOfMethods, storageMeals: $storageMeals)
             } else if contentOfMethods.name == "DELETE" {
                 MethodDelete( storageMeals: $storageMeals, typeMethod: contentOfMethods.name)
+            } else {
+                MethodPut(storageMeals: $storageMeals, selectedIndex: $selectedIndex, typeMethod: contentOfMethods.name)
             }
         }
     }

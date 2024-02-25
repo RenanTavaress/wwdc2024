@@ -25,8 +25,8 @@ struct EndPoint: View {
             
             HStack {
                 Text(endPoint)
-                    .foregroundStyle(Color(red: 99/255, green: 90/255, blue: 90/255))
                     .frame(alignment: .leading)
+                   
 
                 
                 if needId {
@@ -36,12 +36,11 @@ struct EndPoint: View {
                 }
                 
             }.frame(width: 350, height: 60, alignment: .leading)
-            .foregroundColor(.black)
             .padding(.leading, 20)
             .font(.system(size: 20))
             
             
-        }.background(Color(.secondarySystemBackground))
+        }.background(Color(.systemGray6))
             .cornerRadius(15)
             
         

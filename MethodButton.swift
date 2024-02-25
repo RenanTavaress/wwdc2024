@@ -24,7 +24,7 @@ struct MethodButton: View {
         .padding(.vertical, 20)
         
        
-        if !(methodsCategories.last?.id == paramsMethods.id) {
+        if !(methodsCategories.last?.id == paramsMethods.id) && (paramsMethods.name != "Introduction") {
             Divider()
         }
         

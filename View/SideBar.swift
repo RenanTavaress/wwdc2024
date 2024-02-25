@@ -17,13 +17,13 @@ struct SideBarView: View {
 //                    .foregroundStyle(Color(.systemGray))
                 
                 VStack {
-                    Text("HTTP")
+                    Text("HTTP Verbs")
                         .font(.title3)
                         .foregroundStyle(Color(.label))
                         .padding()
                 }
                 .frame(alignment: .top)
-                .background(Color(.secondarySystemBackground))
+                .background(Color(.systemGray6))
                 .cornerRadius(15)
                 .padding(.top, 25)
             }

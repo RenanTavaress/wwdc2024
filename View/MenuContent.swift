@@ -16,10 +16,13 @@ struct MenuContent: View {
     
     var typeMethod: String
     
+   
+    
     var body: some View {
         HStack {
             if typeMethod != "GET" {
-                Image(systemName: category.isChecked ? "checkmark.square.fill" :  "square")
+                Image(systemName: category.isChecked ? "checkmark.square.fill" :  "square").opacity((category.isChecked && typeMethod == "PUT") ? 0.3 : 1)
+                    .foregroundColor(.black)
                     .font(.system(size: 30))
                     .onTapGesture {
                         print(storageMeals.storageMeals)
@@ -36,15 +39,22 @@ struct MenuContent: View {
             VStack(alignment: .leading) {
                 HStack {
                     Text(category.name)
-                        .font(.customFont(size: 24))
-                    Text(category.dot)
-                        .font(.customFont(size: 24))
+                        .font(.customFont(size: 22))
+                        .lineLimit(nil)
+                       
+                      
+                    Spacer()
                     Text(category.price)
-                        .font(.customFont(size: 24))
+                        .font(.customFont(size: 22))
+                        
                 }
                 Text(category.description)
                     .font(.customFont(size: 14))
-            }
+                   
+                    
+            }.foregroundColor(.black)
+                .frame(width: 550, alignment: .center)
+//                .background(.red)
             
         }
     }

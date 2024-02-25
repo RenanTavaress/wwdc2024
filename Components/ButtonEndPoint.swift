@@ -24,7 +24,7 @@ struct ButtonEndPoint: View {
                 
                 
         }.frame(width: 130, height: 60)
-            .background(Color(.secondarySystemBackground))
+            .background(Color(.systemGray6))
             .cornerRadius(15)
     }
 }
