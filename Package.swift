@@ -8,19 +8,19 @@ import PackageDescription
 import AppleProductTypes
 
 let package = Package(
-    name: "wwdc2024",
+    name: "RestôApi",
     platforms: [
         .iOS("16.0")
     ],
     products: [
         .iOSApplication(
-            name: "wwdc2024",
+            name: "RestôApi",
             targets: ["AppModule"],
             bundleIdentifier: "com.renantavares.wwdc2024",
             teamIdentifier: "5BRW4CDBH7",
             displayVersion: "1.0",
             bundleVersion: "1",
-            appIcon: .placeholder(icon: .clock),
+            appIcon: .asset("AppIcon"),
             accentColor: .presetColor(.cyan),
             supportedDeviceFamilies: [
                 .pad,

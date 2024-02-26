@@ -58,7 +58,7 @@ struct ContentView: View {
                             Spacer()
                         }
                         .navigationBarTitleDisplayMode(.large)
-                        .navigationTitle("Restaurant")
+                        .navigationTitle("RestôApi")
                         
                         
                     }
