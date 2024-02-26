@@ -11,6 +11,6 @@ import Foundation
 let methodsCategories: [Methods] = [
     Methods(name: "GET", color: .blue),
     Methods(name: "POST", color: .green),
-    Methods(name: "PUT", color: .orange),
+   // Methods(name: "PUT", color: .orange),
     Methods(name: "DELETE", color: .red),
 ]

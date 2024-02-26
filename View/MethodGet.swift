@@ -24,10 +24,11 @@ struct MethodGet: View {
             
             VStack(alignment: .center) {
                 
+                
                 VStack(alignment: .leading, spacing: 10) {
-                    Text("The HTTP GET method is a type of request used to obtain a representation of a resource from a server (Kitchen). It's one of the most common and simple methods in HTTP. It's used solely to request data, not to send or modify it. It's like asking for a menu in a restaurant: you receive the available information.")
+                    Text("The GET method is used only to receive information and not to send or modify. It's like asking for a menu at a restaurant: you receive the available information. The GET method is one of the most common and simple methods of HTTP.")
                   
-                    Text("Every time you change a category on the menu, our endpoint also changes. Our URL would be ````www.apirestaurant.com````  and the endpoint is ````/menu/starter````. An API endpoint is a specific URL that identifies a particular resource in an API. These endpoints are used to perform operations or obtain information related to that resource. Therefore, the GET method is used only to receive information, as in the case of viewing the menu.")
+                    Text("Every time you change the menu category, our endpoint also changes, our URL would be ````www.apirestaurant.com```` and the endpoint is ````/menu/starter````. These endpoints are used to perform operations or obtain information related to that resource.")
                         
                     VStack(alignment: .leading, spacing: 5) {
                         Text("Example: GET").bold()
@@ -48,6 +49,14 @@ struct MethodGet: View {
                 
                 Cardapio(selectedIndex: $selectedIndex, typeMethod: typeMethod)
                     .environmentObject(storageMeals)
+                
+                
+                VStack {
+                    Text("Now that you've learned the GET method, let's move on to the next method of making a request: the POST method.")
+                }.frame(width: 725)
+                    .padding(.vertical, 20)
+                    .multilineTextAlignment(.leading).font(.system(size: 18))
+                
             }
                
         }.navigationTitle(typeMethod)

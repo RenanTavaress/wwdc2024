@@ -20,7 +20,7 @@ struct Introduction: View {
                     Text("Example of a restaurant.").font(.title).bold()
                     Text("But what does this mean in practice? And how does it relate to a restaurant? Let's imagine that our system is a restaurant, and that we, as people, are the customers. The API would be the waiter because it is the interface between you and all the services that a restaurant offers, and the kitchen is the server because that's where all the magic happens. You don't need to worry about stoves, ovens, dishes, managing inventory, or serving drinks. The menu is the data listing all the options available for you to choose from when you ask the waiter. Each menu item has a name, a price, and a description.").font(.title2)
                     Text("HTTP Verbs and Their Functions").font(.title).bold()
-                    Text("HTTP verbs, such as GET, POST, PUT, and DELETE, are like actions you can take in this restaurant.").font(.title2)
+                    Text("HTTP verbs, such as GET, POST and DELETE, are like actions you can take in this restaurant.").font(.title2)
         
                     Text("Let's explore each verb? Follow in order as it is on the sidebar.").font(.title2)
                     

@@ -61,6 +61,12 @@ struct MethodPost: View {
                         
                         Cardapio(selectedIndex: $selectedIndex, typeMethod: typeMethod)
                             .environmentObject(storageMeals)
+                        
+                        VStack {
+                            Text("Now that you're already familiar with the POST method, let's move on to the next step: the DELETE method for removal.")
+                        }.frame(width: 725)
+                            .padding(.vertical, 10)
+                            .multilineTextAlignment(.leading).font(.system(size: 18))
                        
                     }
                     
