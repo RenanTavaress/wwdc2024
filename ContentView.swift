@@ -8,7 +8,6 @@ struct ContentView: View {
     var body: some View {
         VStack {
             if(isiPad()) {
-                
                 NavigationSplitView(columnVisibility: $columnVisibility) {
                     VStack(alignment: .center) {
                         SideBarView()
@@ -28,11 +27,6 @@ struct ContentView: View {
                             }
                             
                         }
-                        
-                        
-                        
-                        
-                        
                         ScrollView(showsIndicators: false) {
                             Spacer()
                             VStack(alignment: .center, spacing: 10) {
@@ -67,7 +61,7 @@ struct ContentView: View {
             detail: {
                 
                 Introduction().padding(.horizontal,40)
-                // aqui é o conteudo do programa
+
             }
                 
             }
